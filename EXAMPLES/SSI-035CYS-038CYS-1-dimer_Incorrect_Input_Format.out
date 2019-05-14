@@ -1,0 +1,32 @@
+----------------------------------------
+-  MP2D get_properties correction v1.0 -
+----------------------------------------
+
+Software Implementation: Chandler Greenwell, August 2018.
+
+Please cite: J. Rezac, C. Greenwell, and G. Beran.
+J. Chem. Theory Comput. 14, 4711-4721 (2018).
+DOI: 10.1021/acs.jctc.8b00548
+
+MP2D C6 coefficient files:
+   UCHF: /home/chandemonium/MP2D_Program/Dispersion/BACKUPS_9_30_2018/UCHF_C6coeffs.dat
+   CKS:  /home/chandemonium/MP2D_Program/Dispersion/BACKUPS_9_30_2018/CKS_C6coeffs.dat
+
+MP2D empirical parameters:
+   s8    = 1.18735
+   TT_a1 = 0.943633
+   TT_a2 = 0.480246
+   r_cut = 0.72
+   w     = 0.2
+
+MP2D Dispersion Energies (kcal/mol)
+   UCHF Contribution:  0.000000 
+   CKS Contribution:  0.000000 
+   MP2D dispersion correction:  0.000000 
+
+
+Atomic Coordinates in Angstroms
+
+Edisp kcal/mol 0.000000 
+normal termination of mp2d
+

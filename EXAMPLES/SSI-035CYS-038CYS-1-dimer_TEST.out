@@ -1,0 +1,50 @@
+----------------------------------------
+-  MP2D get_properties correction v1.0 -
+----------------------------------------
+
+Software Implementation: Chandler Greenwell, August 2018.
+
+Please cite: J. Rezac, C. Greenwell, and G. Beran.
+J. Chem. Theory Comput. 14, 4711-4721 (2018).
+DOI: 10.1021/acs.jctc.8b00548
+
+MP2D C6 coefficient files:
+   UCHF: /home/chandemonium/MP2D_Program/Dispersion/BACKUPS_9_30_2018/UCHF_C6coeffs.dat
+   CKS:  /home/chandemonium/MP2D_Program/Dispersion/BACKUPS_9_30_2018/CKS_C6coeffs.dat
+
+MP2D empirical parameters:
+   s8    = 1.18735
+   TT_a1 = 0.943633
+   TT_a2 = 0.480246
+   r_cut = 0.72
+   w     = 0.2
+
+MP2D Dispersion Energies (kcal/mol)
+   UCHF Contribution:  -86.387667 
+   CKS Contribution:  -75.541877 
+   MP2D dispersion correction:  10.845790 
+
+
+Atomic Coordinates in Angstroms
+C        0.164816        0.902547        1.654311 
+C       -0.293184        2.341547        1.929311 
+S        1.584816        0.730547        0.536311 
+H        0.439816        0.448547        2.610311 
+H       -0.673184        0.328547        1.267311 
+H        0.530816        2.838547        2.442311 
+H        2.087816       -0.397453        1.078311 
+H       -1.168344        2.304707        2.594701 
+H       -0.528794        2.871837        0.994811 
+C       -1.597184       -0.751453       -1.138689 
+C       -1.258184       -0.149453       -2.498689 
+S       -0.261184       -1.802453       -0.521689 
+H       -1.830184        0.043547       -0.430689 
+H       -2.492184       -1.368453       -1.248689 
+H       -0.985184       -0.958453       -3.180689 
+H        0.729816       -0.909453       -0.624689 
+H       -0.422394        0.560927       -2.416089 
+H       -2.151794        0.342207       -2.910679 
+
+Edisp kcal/mol 10.845790 
+normal termination of mp2d
+
