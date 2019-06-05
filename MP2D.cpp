@@ -168,10 +168,10 @@ void MP2D::GetParameters(ifstream& infile) {
     // Check if MP2D_PARAM_PATH is set. If it is then set psiP. If not it 
     // will throw an error down the line.
     else if (getenv("MP2D_PARAM_PATH")!=NULL) {
-        
         psiP = getenv("MP2D_PARAM_PATH");
+    } else {
+        psiP = "@CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_DATADIR@/mp2d/";
     }
-    else {}
     if (psiP.empty()) {
         cerr << "Calculation terminated, please add an MP2D_PARAM_PATH environment varaible. Refer to README.txt" << endl;
         exit (1);
@@ -254,11 +254,11 @@ int MP2D::BeforeGetTotalNumberOfAtoms(ifstream &infile) {
     getline(infile,line2);
     string numberofatoms = line2;
     
-    string check = line2.substr(2);
-    if (check != "" ) {
-        cerr << "The first line must contain the number of atoms " << endl;
-        exit(1);
-    }
+    //string check = line2.substr(2);
+    //if (check != "" ) {
+    //    cerr << "The first line must contain the number of atoms " << endl;
+    //    exit(1);
+    //}
 
     stringstream ATOMS(numberofatoms);
     ATOMS >> NumberOfAtoms;
@@ -1239,7 +1239,7 @@ void MP2D::Test_Function() {
           double Total_Energy = ((E6CKS + E8CKS) - (E6UCHF + E8UCHF))*627.509;
 
         cout << "----------------------------------------" << endl;
-    cout << "-  MP2D Dispersion correction v1.0 -" << endl;
+    cout << "-  MP2D Dispersion correction v@mp2d_VERSION@ -" << endl;
     cout << "----------------------------------------" << endl;
     cout << "" << endl;
 
@@ -1262,12 +1262,13 @@ void MP2D::Test_Function() {
     cout << "   w     = " <<  width << endl;
     cout << "" << endl;
     cout << "MP2D Dispersion Energies (kcal/mol)" << endl;
-    // cout << "   UCHF Contribution:  " << UCHF_total << endl;
     printf("   UCHF Contribution:  %f \n",4, (E6UCHF + E8UCHF)*627.5096);
-    //cout << "   CKS Contribution:  " << CKS_Total << endl;
     printf("   CKS Contribution:  %f \n", 4, (E6CKS + E8CKS)*627.5095);
-    //cout << "   MP2D get_properties correction:  " << Result << endl;
     printf("   MP2D dispersion correction:  %f \n", 4, Total_Energy);
+    cout << "MP2D Dispersion Energies (Eh)" << endl;
+    cout << "   UCHF Contribution Eh:  " << std::setprecision (12) << (E6UCHF + E8UCHF) << endl;
+    cout << "   CKS Contribution Eh:  " << (E6CKS + E8CKS) << endl;
+    cout << "   MP2D dispersion correction Eh:  " << ((E6CKS + E8CKS) - (E6UCHF + E8UCHF)) << endl;
     cout << "" << endl;
     cout << "" << endl;
     cout << "Atomic Coordinates in Angstroms" << endl;
@@ -1278,24 +1279,19 @@ void MP2D::Test_Function() {
     cout << "" << endl;
       
         if (Gradient_U == true ) {
+            ofstream myfile;
+            myfile.open ("mp2d_gradient");
+
             cout << "MP2D Gradient (hartree/bohr)" << endl;
             for (int i=0; i<Ntot; i++ ) {
             
-            
-                printf ("%*f %*f %*f \n", 15, Gradient[3*i]+C6Grad[3*i], 15, Gradient[3*i+1]+ C6Grad[3*i+1], 15, Gradient[3*i+2]+ C6Grad[3*i+2]);
-                
+                printf ("%20.12f %20.12f %20.12f \n", 15, Gradient[3*i]+C6Grad[3*i], 15, Gradient[3*i+1]+ C6Grad[3*i+1], 15, Gradient[3*i+2]+ C6Grad[3*i+2]);
+
+                // The gradients are converted to hartree/Bohr so that PSI4 can use the gradients
+                myfile << std::setprecision (12) << Gradient[3*i]+C6Grad[3*i] << "     " << Gradient[3*i+1]+ C6Grad[3*i+1] << "     " << Gradient[3*i+2]+ C6Grad[3*i+2] << endl;
             }
+
+            myfile.close();
         }
 
 }
-
-
-
-
-
-
-
-
-
-
-
