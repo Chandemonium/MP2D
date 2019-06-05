@@ -23,8 +23,9 @@ AtomicNumbers(NULL), xyz(NULL), symbols(NULL), RcovAB(NULL) // r0AB(NULL), RcovA
 
 void MP2D::Initialize(ifstream &infile, int argc, char *argv[]) {
 
-    AngToBohr = 1.8897259886;
-    HartreeToKcal = 627.5095; 
+    // CODATA 2014
+    AngToBohr = 1.0 / 0.52917721067;
+    HartreeToKcal = 627.5094737775374;
 
     GetUserParameters(argc,argv);   
     GetParameters( infile);
@@ -1236,7 +1237,7 @@ void MP2D::Test_Function() {
         }
     }
 
-          double Total_Energy = ((E6CKS + E8CKS) - (E6UCHF + E8UCHF))*627.509;
+          double Total_Energy = ((E6CKS + E8CKS) - (E6UCHF + E8UCHF)) * HartreeToKcal;
 
         cout << "----------------------------------------" << endl;
     cout << "-  MP2D Dispersion correction v@mp2d_VERSION@ -" << endl;
@@ -1262,8 +1263,8 @@ void MP2D::Test_Function() {
     cout << "   w     = " <<  width << endl;
     cout << "" << endl;
     cout << "MP2D Dispersion Energies (kcal/mol)" << endl;
-    printf("   UCHF Contribution:  %f \n",4, (E6UCHF + E8UCHF)*627.5096);
-    printf("   CKS Contribution:  %f \n", 4, (E6CKS + E8CKS)*627.5095);
+    printf("   UCHF Contribution:  %f \n",4, (E6UCHF + E8UCHF) * HartreeToKcal);
+    printf("   CKS Contribution:  %f \n", 4, (E6CKS + E8CKS) * HartreeToKcal);
     printf("   MP2D dispersion correction:  %f \n", 4, Total_Energy);
     cout << "MP2D Dispersion Energies (Eh)" << endl;
     cout << "   UCHF Contribution Eh:  " << std::setprecision (12) << (E6UCHF + E8UCHF) << endl;
