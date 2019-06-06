@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)  # 3.5 avoid invalid C compiler
 
 project(mp2d
-        VERSION 1.0
+        VERSION 1.1
         LANGUAGES CXX)
 set(mp2d_AUTHORS      "Chandler S. Greenwell and Gregory J. O. Beran")
 set(mp2d_DESCRIPTION  "Dispersion correction to MP2")
@@ -41,10 +41,12 @@ include(autocmake_safeguards)
 
 configure_file(MP2D.cpp
                ${CMAKE_CURRENT_BINARY_DIR}/MP2D.cpp @ONLY)
+configure_file(Main.cpp
+               ${CMAKE_CURRENT_BINARY_DIR}/Main.cpp @ONLY)
 configure_file(mp2d_parameters.dat
                ${CMAKE_CURRENT_BINARY_DIR}/mp2d_parameters.dat @ONLY)
 
-set(sources_list Main.cpp
+set(sources_list ${CMAKE_CURRENT_BINARY_DIR}/Main.cpp
                  ${CMAKE_CURRENT_BINARY_DIR}/MP2D.cpp)
 
 add_executable(mp2d ${sources_list})
