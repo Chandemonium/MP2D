@@ -19,6 +19,11 @@ int main(int argc, char ** argv) {
         cerr << "No input file provided" << endl;
         return 1;
     }
+    string firstarg = argv[1];
+    if (firstarg == "--version") {
+        cout << "@mp2d_VERSION@" << endl;
+        return 0;
+    }
     strcpy(filename, argv[1]);
     
     ifstream infile;

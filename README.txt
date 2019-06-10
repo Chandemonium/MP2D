@@ -66,12 +66,21 @@ have the dispersion coefficient files:
    CKS_Path: /the/directory/where/MP2D/was/unpacked/CKS_C6coeffs.dat
    UCHF_Path: /the/directory/where/MP2D/was/unpacked/UCHF_C6coeffs.dat
 
-3) Set an environmnet variable MP2D_PARAM_PATH in your .cshrc or .bashrc
+3) Set an environment variable MP2D_PARAM_PATH in your .cshrc or .bashrc
 that points to the directory containing mp2d_parameters.dat.
+
+1-3) Alternately, steps 1-3 above can be replaced by `git clone`,
+`cmake` configure as outlined in CMakeLists.txt, `make`, and `make
+install`. The `mp2d` executable built in this manner knows where its
+parameter files are and requires no further editing or envvar setting.
 
 4) Test the code by running the sample jobs in the examples/ folder.  
 See the Usage section below for details.
 
+Note) Continuous integration tests and other usual repository
+paraphernalia found at https://github.com/MolSSI/QCEngine. A python
+interface available in QCEngine v0.7.0. Conda package available
+https://anaconda.org/psi4/mp2d.
 
 Usage
 ======
