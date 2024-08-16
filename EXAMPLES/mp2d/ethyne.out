@@ -1,0 +1,32 @@
+---------------------------------------
+-   MP2D Dispersion correction v1.2   -
+---------------------------------------
+
+Chandler Greenwell and Gregory Beran, 2018-2024.
+
+Please cite:
+   MP2D: J. Rezac, C. Greenwell, and G. Beran.
+   J. Chem. Theory Comput. 14, 4711-4721 (2018).
+   DOI: 10.1021/acs.jctc.8b00548
+
+C6 coefficient files used:
+   UCHF: /home/software/mp2d/UCHF_C6coeffs.dat
+   CKS:  /home/software/mp2d/CKS_C6coeffs.dat
+
+MP2D empirical parameters:
+   s8    = 1.1873
+   TT_a1 = 0.9436
+   TT_a2 = 0.4802
+   r_cut = 0.72
+   w     = 0.2
+
+Atomic Coordinates (Angstroms): 4 atoms
+C      -1.995239        0.336096        0.000000 
+H      -3.065254        0.336096        0.000000 
+C      -1.095227        0.336096        0.000000 
+H      -0.025212        0.336096        0.000000 
+
+MP2D Dispersion Energies (hartrees)
+   UCHF dispersion contribution        =    -0.01990035 
+   CKS dispersion contribution         =    -0.01640408 
+ ! MP2D dispersion correction          =     0.00349627 

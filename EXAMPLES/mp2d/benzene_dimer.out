@@ -1,0 +1,52 @@
+---------------------------------------
+-   MP2D Dispersion correction v1.2   -
+---------------------------------------
+
+Chandler Greenwell and Gregory Beran, 2018-2024.
+
+Please cite:
+   MP2D: J. Rezac, C. Greenwell, and G. Beran.
+   J. Chem. Theory Comput. 14, 4711-4721 (2018).
+   DOI: 10.1021/acs.jctc.8b00548
+
+C6 coefficient files used:
+   UCHF: /home/software/mp2d/UCHF_C6coeffs.dat
+   CKS:  /home/software/mp2d/CKS_C6coeffs.dat
+
+MP2D empirical parameters:
+   s8    = 1.1873
+   TT_a1 = 0.9436
+   TT_a2 = 0.4802
+   r_cut = 0.72
+   w     = 0.2
+
+Atomic Coordinates (Angstroms): 24 atoms
+C       1.205091       -0.695760        0.000000 
+C       0.000000       -1.391519        0.000000 
+C      -1.205091       -0.695760        0.000000 
+C      -1.205091        0.695760        0.000000 
+C       0.000000        1.391519        0.000000 
+C       1.205091        0.695760        0.000000 
+H       2.140411       -1.235767        0.000000 
+H       0.000000       -2.471534        0.000000 
+H      -2.140411       -1.235767        0.000000 
+H      -2.140411        1.235767        0.000000 
+H       0.000000        2.471534        0.000000 
+H       2.140411        1.235767        0.000000 
+C      -1.205091       -2.406137        3.488430 
+C       0.000000       -3.101897        3.488430 
+C       1.205091       -2.406137        3.488430 
+C       1.205091       -1.014618        3.488430 
+C       0.000000       -0.318858        3.488430 
+C      -1.205091       -1.014618        3.488430 
+H      -2.140411       -2.946145        3.488430 
+H       0.000000       -4.181912        3.488430 
+H       2.140411       -2.946145        3.488430 
+H       2.140411       -0.474611        3.488430 
+H       0.000000        0.761156        3.488430 
+H      -2.140411       -0.474611        3.488430 
+
+MP2D Dispersion Energies (hartrees)
+   UCHF dispersion contribution        =    -0.26311606 
+   CKS dispersion contribution         =    -0.20989658 
+ ! MP2D dispersion correction          =     0.05321948 
