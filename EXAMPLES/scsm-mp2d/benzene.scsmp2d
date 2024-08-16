@@ -1,0 +1,52 @@
+---------------------------------------
+-   MP2D Dispersion correction v1.2   -
+---------------------------------------
+
+Chandler Greenwell and Gregory Beran, 2018-2024.
+
+Please cite:
+   MP2D: J. Rezac, C. Greenwell, and G. Beran.
+   J. Chem. Theory Comput. 14, 4711-4721 (2018).
+   DOI: 10.1021/acs.jctc.8b00548
+
+   SCS-MP2D: C. Greenwell, J. Rezac, and G. Beran.
+   Phys. Chem. Chem. Phys. 24, 3695-3712 (2022).
+   DOI: 10.1039/D1CP04922D
+
+C6 coefficient files used:
+   UCHF: /home/software/mp2d/UCHF_C6coeffs.dat
+   CKS:  /home/software/mp2d/CKS_C6coeffs.dat
+
+SCS-MP2D empirical parameters:
+   s8    = 1.2092
+   TT_a1 = 1.5359
+   TT_a2 = -0.7595
+   r_cut = 0.8254
+   w     = 0.1198
+   Cos   = 0.8263
+   Css   = 0.9004
+
+Atomic Coordinates (Angstroms): 12 atoms
+C       1.205091       -0.695760        0.000000 
+C       0.000000       -1.391519        0.000000 
+C      -1.205091       -0.695760        0.000000 
+C      -1.205091        0.695760        0.000000 
+C       0.000000        1.391519        0.000000 
+C       1.205091        0.695760        0.000000 
+H       2.140411       -1.235767        0.000000 
+H       0.000000       -2.471534        0.000000 
+H      -2.140411       -1.235767        0.000000 
+H      -2.140411        1.235767        0.000000 
+H       0.000000        2.471534        0.000000 
+H       2.140411        1.235767        0.000000 
+
+SCS-MP2D Dispersion Energies (hartrees)
+   HF energy                           =  -230.78162420
+   MP2 same-spin correlation           =    -0.23990954
+   MP2 opposite-spin correlation       =    -0.72281550
+   Scaled MP2 energy                   =  -231.59490120 
+   Scaled UCHF dispersion contribution =    -0.10369455 
+   CKS dispersion contribution         =    -0.09642112 
+   Scaled MP2D dispersion correction   =     0.00727343 
+
+ ! Total SCS-MP2D energy (hartrees)    =  -231.58762778 
