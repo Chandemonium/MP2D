@@ -1,0 +1,9 @@
+a_one = 1.5359
+a_two = -0.7595
+rcut = 0.8254
+width = 0.1198
+s_8 = 1.2092
+Cos = 0.8263
+Css = 0.9004
+CKS_Path: @CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_DATADIR@/mp2d/CKS_C6coeffs.dat
+UCHF_Path: @CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_DATADIR@/mp2d/UCHF_C6coeffs.dat
