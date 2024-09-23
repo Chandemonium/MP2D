@@ -86,8 +86,8 @@ class MP2D {
   double TT_a1;
   double TT_a2;
   double s8;
-  double Cos;
-  double Css;
+  double Cos=1.0;
+  double Css=1.0;
   double hf;
   double mp2_os;
   double mp2_ss;
