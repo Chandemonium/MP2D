@@ -705,7 +705,7 @@ double MP2D::TangToenniesDamp(int n, double r0ab, double Rab) {
     damp_sum_deriv += ((pow(S_prime,i)*pow(Rab,i-1))/Factorial(i))*i;
   }
 
-  double ttdamp = (S_prime*exp(-1*S)*damp_sum - exp(-1*S)*damp_sum_deriv)*1.8897;
+  double ttdamp = (S_prime*exp(-1*S)*damp_sum - exp(-1*S)*damp_sum_deriv)*AngToBohr;
   return ttdamp;
 }
 
@@ -1110,10 +1110,10 @@ void MP2D::ComputeEnergyandPrintResults() {
       E8CKS += E8_CKS;
       
       // Build the Gradient
-      double deriv6_CKS = (E6_CKS/damp)*damp6D*ModR_D/1.8897 + 6*(C6_CKS)/pow(ModR,7)*damp*ModR_D;
-      double deriv6_UCHF = (E6_UCHF/damp)*damp6D*ModR_D/1.8897 + 6*(C6_UCHF)/pow(ModR,7)*damp*ModR_D;
-      double deriv8_CKS = (E8_CKS/damp8)*damp8D*ModR_D/1.8897 + 8*(s_8*3*C6_CKS*sqrt(Q_A*Q_B))/pow(ModR,9)*damp8*ModR_D;
-      double deriv8_UCHF = (E8_UCHF/damp8)*damp8D*ModR_D/1.8897 + 8*(s_8*3*C6_UCHF*sqrt(Q_A*Q_B))/pow(ModR,9)*damp8*ModR_D;
+      double deriv6_CKS = (E6_CKS/damp)*damp6D*ModR_D/AngToBohr + 6*(C6_CKS)/pow(ModR,7)*damp*ModR_D;
+      double deriv6_UCHF = (E6_UCHF/damp)*damp6D*ModR_D/AngToBohr + 6*(C6_UCHF)/pow(ModR,7)*damp*ModR_D;
+      double deriv8_CKS = (E8_CKS/damp8)*damp8D*ModR_D/AngToBohr + 8*(s_8*3*C6_CKS*sqrt(Q_A*Q_B))/pow(ModR,9)*damp8*ModR_D;
+      double deriv8_UCHF = (E8_UCHF/damp8)*damp8D*ModR_D/AngToBohr + 8*(s_8*3*C6_UCHF*sqrt(Q_A*Q_B))/pow(ModR,9)*damp8*ModR_D;
       
       //actual arguments form MP2D gradient
       double argument_x = (deriv6_CKS + deriv8_CKS)-(deriv6_UCHF+deriv8_UCHF);
@@ -1144,7 +1144,7 @@ void MP2D::ComputeEnergyandPrintResults() {
     }
   }
   
-  double Total_Energy = ((E6CKS + E8CKS) - (0.5*Cos + 0.5*Css)*(E6UCHF + E8UCHF))*627.509;
+  double Total_Energy = ((E6CKS + E8CKS) - (0.5*Cos + 0.5*Css)*(E6UCHF + E8UCHF))*HartreeToKcal;
   
   cout << "---------------------------------------" << endl;
   cout << "-   MP2D Dispersion correction v1.2   -" << endl;
@@ -1184,13 +1184,13 @@ void MP2D::ComputeEnergyandPrintResults() {
   cout << "\nAtomic Coordinates (Angstroms): " << NumberOfAtoms << " atoms" << endl;
   for (int i =0; i<Ntot; i++) {
     cout << symbols[i];
-    printf ("%*f %*f %*f \n", 15, XYZ[3*i]/1.8897, 15, XYZ[3*i+1]/1.8897, 15, XYZ[3*i+2]/1.8897);
+    printf ("%*f %*f %*f \n", 15, XYZ[3*i]/AngToBohr, 15, XYZ[3*i+1]/AngToBohr, 15, XYZ[3*i+2]/AngToBohr);
   }
   cout << "\n";
   
   //cout << "MP2D Dispersion Energies (kcal/mol)" << endl;
-  //printf("   UCHF Contribution:  %.4f \n", (0.5*Cos + 0.5*Css)*(E6UCHF + E8UCHF)*627.5096);
-  //printf("   CKS Contribution:  %.4f \n", (E6CKS + E8CKS)*627.5095);
+  //printf("   UCHF Contribution:  %.4f \n", (0.5*Cos + 0.5*Css)*(E6UCHF + E8UCHF)*HartreeToKcal);
+  //printf("   CKS Contribution:  %.4f \n", (E6CKS + E8CKS)*HartreeToKcal);
   //printf("   MP2D dispersion correction:  %.4f \n\n",  Total_Energy);
   
   if (SCSMP2D_U)  {
@@ -1203,7 +1203,7 @@ void MP2D::ComputeEnergyandPrintResults() {
     printf("   Scaled UCHF dispersion contribution = %14.8f \n", (0.5*Cos + 0.5*Css)*(E6UCHF + E8UCHF));
     printf("   CKS dispersion contribution         = %14.8f \n",  (E6CKS + E8CKS));
     printf("   Scaled MP2D dispersion correction   = %14.8f \n", (E6CKS + E8CKS) - (0.5*Cos + 0.5*Css)*(E6UCHF + E8UCHF) );
-    double SCSMP2D_Total_Energy = Total_Energy/627.5095 + HFT + Cos*MP2_os + Css*MP2_ss;
+    double SCSMP2D_Total_Energy = Total_Energy/HartreeToKcal + HFT + Cos*MP2_os + Css*MP2_ss;
     printf("\n ! Total SCS-MP2D energy (hartrees)    = %14.8f \n", SCSMP2D_Total_Energy);
     
   }
